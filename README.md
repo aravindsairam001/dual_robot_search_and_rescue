@@ -111,50 +111,6 @@ Return-to-Home Accuracy	61.54%	Final return stage was inconsistent
 Stuck Rate	50%	Half the bots got stuck in tight corridors
 Recovery Rate	90%	Custom recovery logic worked effectively
 
-
-⸻
-
-🛠 Project Setup Instructions
-
-# 1. Install ROS Noetic (Ubuntu 20.04)
-# http://wiki.ros.org/noetic/Installation/Ubuntu
-
-# 2. Create a Catkin workspace
-mkdir -p ~/catkin_ws/src
-cd ~/catkin_ws
-catkin_make
-source devel/setup.bash
-
-# 3. Clone required repositories
-cd ~/catkin_ws/src
-git clone https://github.com/ros-planning/navigation.git
-git clone https://github.com/leggedrobotics/darknet_ros.git
-git clone https://github.com/clearpathrobotics/cpr_gazebo.git
-# git clone <your project repo>
-
-# 4. Install dependencies and build
-cd ~/catkin_ws
-rosdep install --from-paths src --ignore-src -r -y
-catkin_make
-
-
-⸻
-
-🚀 Running the Simulation
-
-# Step 1: Launch the office environment
-roslaunch your_package_name office_environment.launch
-
-# Step 2: Run Husky for mapping
-roslaunch husky_navigation mapless_navigation.launch
-
-# Step 3: Save the map
-rosrun map_server map_saver -f office_map
-
-# Step 4: Launch TurtleBot swarm for rescue
-roslaunch turtlebot_swarm search_and_rescue.launch map_file:="/path/to/office_map.yaml"
-
-
 ⸻
 
 🧾 Conclusion & Future Recommendations
